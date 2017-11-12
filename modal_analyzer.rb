@@ -62,9 +62,9 @@ def possessives_filter(sentences_filtered)
 end
 
 def parenthetical_filter (sentences_filtered)
-  capture = sentences_filtered.select{|s|  /might,[\w\s]*\./.match(s.downcase)}
+  capture = sentences_filtered.select{|s| /might,[\w\s]*\./.match(s.downcase)}
   sentences_filtered = sentences_filtered - capture
-  sentences_filtered = sentences_filtered.select{|s| !/might,[\w\s]*,[^"|^'']/.match(s.downcase)}
+  sentences_filtered = sentences_filtered.select{|s| !/might,[\w\s]*,/.match(s.downcase)}
   sentences_filtered = sentences_filtered + capture
 
   puts sentences_filtered.length
